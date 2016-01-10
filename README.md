@@ -1,2 +1,3 @@
 # homebrew-mlton
-Hombrew forumlae for MLton
+
+[Homebrew](http://brew.sh/) formulae for [MLton](http://mlton.org).
