@@ -33,4 +33,11 @@ class MLton < Formula
       prefix.install Dir["*"]
     end
   end
+
+  def test
+    (testpath/"hello.sml").write("val () = print \"Hello, world!\\n\"")
+    system "#{bin}/mlton", "hello.sml"
+    system "./hello"
+  end
+
 end
