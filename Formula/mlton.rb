@@ -36,7 +36,9 @@ class Mlton < Formula
   end
 
   test do
-    (testpath/"hello.sml").write("val () = print \"Hello, world!\\n\"")
+    (testpath/"hello.sml").write <<-'EOS'.undent
+      val () = print "Hello, world!\n"
+    EOS
     system "#{bin}/mlton", "hello.sml"
     system "./hello"
   end
