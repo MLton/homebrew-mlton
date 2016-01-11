@@ -6,6 +6,7 @@ os:
 before_install:
   - brew update
   - brew style /dev/null
+  - brew install gmp
 
 script:
   - brew audit --strict --online ./Formula/mlton.rb
