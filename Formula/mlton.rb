@@ -35,7 +35,7 @@ class Mlton < Formula
     end
   end
 
-  def test
+  test do
     (testpath/"hello.sml").write("val () = print \"Hello, world!\\n\"")
     system "#{bin}/mlton", "hello.sml"
     system "./hello"
