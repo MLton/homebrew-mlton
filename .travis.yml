@@ -6,4 +6,4 @@ os:
 before_install:
 
 script:
-  - brew audit --debug --verbose --strict --online file://$(pwd)/Formula/mlton.rb
+  - brew audit --debug --verbose --strict --online ./Formula/mlton.rb
