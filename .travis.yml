@@ -9,5 +9,5 @@ before_install:
 script:
   - brew audit --debug --verbose --strict --online ./Formula/mlton.rb
   - brew install --debug --verbose ./Formula/mlton.rb
-  - brew test --debug --verbose mlton
+  - brew test --debug --verbose ./Formula/mlton.rb
   - brew uninstall --debug --verbose mlton
