@@ -39,5 +39,4 @@ class Mlton < Formula
     system "#{bin}/mlton", "hello.sml"
     system "./hello"
   end
-
 end
