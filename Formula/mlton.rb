@@ -31,6 +31,7 @@ class Mlton < Formula
 
   def install
     cd "local" do
+      inreplace "bin/mlton", "-lm /opt/local/lib/libgmp.a -Wl,-no_pie", "-lm -lgmp"
       mv "man", "share"
       prefix.install Dir["*"]
     end
