@@ -14,4 +14,4 @@ before_install:
   - env | grep TRAVIS_
 
 script:
-  - brew audit --verbose --strict --online mlton
+  - brew audit --verbose --strict --online mlton/mlton/mlton
