@@ -4,14 +4,6 @@ os:
   - osx
 
 before_install:
-  - if [ -f ".git/shallow" ]; then travis_retry git fetch --unshallow; fi
-  - sudo chown -R $USER $(brew --repo)
-  - brew update
-  - mkdir -p $(brew --repo)/Library/Taps/mlton
-  - ln -s $PWD $(brew --repo)/Library/Taps/mlton/homebrew-mlton
-  - cd $(brew --repo)/Library/Taps/mlton/homebrew-mlton
-  - export TRAVIS_BUILD_DIR="$(brew --repo)/Library/Taps/mlton/homebrew-mlton"
-  - env | grep TRAVIS_
 
 script:
-  - brew audit --verbose --strict --online mlton/mlton/mlton
+  - brew audit --debug --verbose --strict --online file://$(pwd)/Formula/mlton.rb
