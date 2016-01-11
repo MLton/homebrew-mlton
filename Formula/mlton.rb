@@ -23,15 +23,14 @@ class Mlton < Formula
   sha256 "7c7a660515b44e97993e2330297e1454bb5d5fc01d802ae5579611fe4d9b8de7"
   revision 1
 
-  # We download and install the version of MLton which is statically linked to libgmp, but all
-  # generated executables will require gmp anyway, hence the dependency
+  # We download and install the version of MLton which is statically
+  # linked to libgmp, but all generated executables will require gmp
+  # anyway, hence the dependency
   depends_on StandardHomebrewLocation
   depends_on "gmp"
 
   def install
     cd "local" do
-      # Remove OS X droppings
-      rm Dir["man/man1/._*"]
       mv "man", "share"
       prefix.install Dir["*"]
     end
