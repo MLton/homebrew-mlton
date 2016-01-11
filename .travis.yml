@@ -4,6 +4,7 @@ os:
   - osx
 
 before_install:
+  - brew update
 
 script:
   - brew audit --debug --verbose --strict --online ./Formula/mlton.rb
