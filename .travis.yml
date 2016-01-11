@@ -11,4 +11,4 @@ script:
   - brew audit --strict --online ./Formula/mlton.rb
   - brew install --verbose ./Formula/mlton.rb
   - brew test ./Formula/mlton.rb
-  - brew uninstall mlton
+  - brew remove --verbose mlton
