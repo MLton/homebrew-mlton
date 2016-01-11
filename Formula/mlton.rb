@@ -15,7 +15,7 @@ class StandardHomebrewLocation < Requirement
   end
 end
 
-class MLton < Formula
+class Mlton < Formula
   homepage "http://mlton.org"
   url "https://downloads.sourceforge.net/project/mlton/mlton/20130715/mlton-20130715-1.amd64-darwin.gmp-static.tgz"
   sha256 "7c7a660515b44e97993e2330297e1454bb5d5fc01d802ae5579611fe4d9b8de7"
