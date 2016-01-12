@@ -6,7 +6,11 @@ os:
 before_install:
   - brew update
   - brew style /dev/null
-  - brew install gmp
+  - if brew outdated | grep -q gmp; then
+      brew upgrade gmp
+    elif ! brew ls | grep -q gmp; then
+      brew install gmp
+    fi
 
 script:
   - brew audit --strict --online ./Formula/mlton.rb
