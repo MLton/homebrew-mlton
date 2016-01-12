@@ -7,9 +7,9 @@ before_install:
   - brew update
   - brew style /dev/null
   - if brew outdated | grep -q gmp; then
-      brew upgrade gmp
+      brew upgrade gmp;
     elif ! brew ls | grep -q gmp; then
-      brew install gmp
+      brew install gmp;
     fi
 
 script:
