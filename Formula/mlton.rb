@@ -18,10 +18,8 @@ end
 class Mlton < Formula
   desc "Whole-program, optimizing compiler for Standard ML"
   homepage "http://mlton.org"
-  url "https://downloads.sourceforge.net/project/mlton/mlton/20130715/mlton-20130715-1.amd64-darwin.gmp-static.tgz"
-  version "20130715"
-  sha256 "7c7a660515b44e97993e2330297e1454bb5d5fc01d802ae5579611fe4d9b8de7"
-  revision 1
+  url "https://downloads.sourceforge.net/project/mlton/mlton/20130715/mlton-20130715-2.amd64-darwin.gmp-static.tgz"
+  sha256 "16a6d4e300f45f4af094692cf8033390e4634fa4c072caf6e9c288234100ad22"
 
   # We download and install the version of MLton which is statically
   # linked to libgmp, but all generated executables will require gmp
@@ -31,7 +29,6 @@ class Mlton < Formula
 
   def install
     cd "local" do
-      inreplace "bin/mlton", "-lm /opt/local/lib/libgmp.a -Wl,-no_pie", "-lm -lgmp"
       mv "man", "share"
       prefix.install Dir["*"]
     end
