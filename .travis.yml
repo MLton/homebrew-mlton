@@ -3,6 +3,9 @@ language: shell
 os:
   - osx
 
+env
+  - FMLA=mlton
+
 before_install:
   - brew update
   - brew style /dev/null
@@ -13,7 +16,7 @@ before_install:
     fi
 
 script:
-  - brew audit --strict --online ./Formula/mlton.rb
-  - brew install --verbose ./Formula/mlton.rb
-  - brew test --verbose ./Formula/mlton.rb
-  - brew remove --verbose mlton
+  - brew audit --strict --online ./Formula/${FMLA}.rb
+  - brew install --verbose ./Formula/${FMLA}.rb
+  - brew test --verbose ./Formula/${FMLA}.rb
+  - brew remove --verbose ${FMLA}
