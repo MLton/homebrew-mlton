@@ -3,7 +3,7 @@ language: shell
 os:
   - osx
 
-env
+env:
   - FMLA=mlton-20130715-binary
 
 before_install:
