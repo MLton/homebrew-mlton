@@ -1,6 +1,7 @@
-# Installs the binary build of MLton.
-# Since MLton is written in ML, building from source
-# would require an existing ML compiler/interpreter for bootstrapping.
+# Installs a binary build of MLton.
+# Since MLton is written in Standard ML, building from source would
+# require an existing Standard ML compiler/interpreter for
+# bootstrapping.
 
 class Mlton20130715Binary < Formula
   desc "Whole-program, optimizing compiler for Standard ML"
