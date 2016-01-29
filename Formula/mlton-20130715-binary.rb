@@ -29,6 +29,7 @@ class Mlton20130715Binary < Formula
 
   def install
     cd "local" do
+      inreplace "bin/mlton", "lib='/usr/local/lib/mlton'", "lib='#{prefix}/lib/mlton'"
       mv "man", "share"
       prefix.install Dir["*"]
     end

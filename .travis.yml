@@ -19,4 +19,6 @@ script:
   - brew audit --strict --online ./Formula/${FMLA}.rb
   - brew install --verbose ./Formula/${FMLA}.rb
   - brew test --verbose ./Formula/${FMLA}.rb
+  - brew unlink --verbose ${FMLA}
+  - brew test --verbose ./Formula/${FMLA}.rb
   - brew remove --verbose ${FMLA}
