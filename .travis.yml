@@ -4,7 +4,7 @@ os:
   - osx
 
 env
-  - FMLA=mlton
+  - FMLA=mlton-20130715-binary
 
 before_install:
   - brew update

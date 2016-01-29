@@ -15,7 +15,7 @@ class StandardHomebrewLocation < Requirement
   end
 end
 
-class Mlton < Formula
+class Mlton20130715Binary < Formula
   desc "Whole-program, optimizing compiler for Standard ML"
   homepage "http://mlton.org"
   url "https://downloads.sourceforge.net/project/mlton/mlton/20130715/mlton-20130715-2.amd64-darwin.gmp-static.tgz"
