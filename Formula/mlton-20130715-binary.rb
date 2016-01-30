@@ -7,7 +7,9 @@ class Mlton20130715Binary < Formula
   desc "Whole-program, optimizing compiler for Standard ML"
   homepage "http://mlton.org"
   url "https://downloads.sourceforge.net/project/mlton/mlton/20130715/mlton-20130715-2.amd64-darwin.gmp-static.tgz"
+  version "20130715"
   sha256 "16a6d4e300f45f4af094692cf8033390e4634fa4c072caf6e9c288234100ad22"
+  revision 1
 
   # We download and install the version of MLton which is statically
   # linked to libgmp, but all generated executables will require gmp
@@ -18,9 +20,9 @@ class Mlton20130715Binary < Formula
 
   def install
     cd "local" do
-      inreplace "bin/mlton", "lib='/usr/local/lib/mlton'", "lib='#{prefix}/lib/mlton'"
-      inreplace "bin/mlton", "homebrewCCOpts=''", "homebrewCCOpts='-I#{Formula["gmp"].opt_prefix}/include'"
-      inreplace "bin/mlton", "homebrewLinkOpts=''", "homebrewLinkOpts='-L#{Formula["gmp"].opt_prefix}/lib'"
+      inreplace "bin/mlton", "lib='/usr/local/lib/mlton'", "lib='#{lib}/mlton'"
+      inreplace "bin/mlton", "gmpHomebrewCCOpts=''", "gmpHomebrewCCOpts='-I#{Formula["gmp"].opt_prefix}/include'"
+      inreplace "bin/mlton", "gmpHomebrewLinkOpts=''", "gmpHomebrewLinkOpts='-L#{Formula["gmp"].opt_prefix}/lib'"
       mv "man", "share"
       prefix.install Dir["*"]
     end
@@ -37,7 +39,7 @@ end
 
 __END__
 diff --git a/local/bin/mlton b/local/bin/mlton
-index 099f110..1a468c3 100755
+index 099f110..4aa25d8 100755
 --- a/local/bin/mlton
 +++ b/local/bin/mlton
 @@ -80,18 +80,8 @@ doit () {
@@ -56,8 +58,8 @@ index 099f110..1a468c3 100755
 -if [ -d '/sw/lib' ]; then
 -        darwinLinkOpts="$darwinLinkOpts -L/sw/lib"
 -fi
-+homebrewCCOpts=''
-+homebrewLinkOpts=''
++gmpHomebrewCCOpts=''
++gmpHomebrewLinkOpts=''
  
  doit "$lib" \
          -ar-script "$lib/static-library"                         \
@@ -69,7 +71,7 @@ index 099f110..1a468c3 100755
 -                '-I/usr/local/include
 -                 -I/opt/local/include
 -                 -I/sw/include'                                  \
-+        -target-cc-opt darwin "$homebrewCCOpts"                  \
++        -target-cc-opt darwin "$gmpHomebrewCCOpts"               \
          -target-cc-opt freebsd '-I/usr/local/include'            \
          -target-cc-opt netbsd '-I/usr/pkg/include'               \
          -target-cc-opt openbsd '-I/usr/local/include'            \
@@ -78,7 +80,7 @@ index 099f110..1a468c3 100755
          -target-link-opt alpha                                   \
                  '-mieee -mbwx -mtune=ev6 -mfp-rounding-mode=d'   \
 -        -target-link-opt darwin "$darwinLinkOpts"                \
-+        -target-link-opt darwin "$hombrewLinkOpts"               \
++        -target-link-opt darwin "$gmpHomebrewLinkOpts"           \
          -target-link-opt freebsd '-L/usr/local/lib/'             \
          -target-link-opt aix '-maix64'                           \
          -target-link-opt ia64 "$ia64hpux"                        \
