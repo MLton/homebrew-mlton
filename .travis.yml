@@ -22,4 +22,6 @@ script:
   - brew test --verbose ./Formula/${FMLA}.rb
   - brew unlink --verbose ${FMLA}
   - brew test --verbose ./Formula/${FMLA}.rb
+  - brew unlink gmp
+  - brew test --verbose ./Formula/${FMLA}.rb
   - brew remove --verbose ${FMLA}
