@@ -5,6 +5,7 @@ os:
 
 env:
   - FMLA=mlton-20130715-binary
+  - FMLA=mlton-20130715-source
 
 before_install:
   - brew update
