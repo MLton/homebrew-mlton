@@ -8,7 +8,6 @@ class Mlton20130715Binary < Formula
   url "https://downloads.sourceforge.net/project/mlton/mlton/20130715/mlton-20130715-2.amd64-darwin.gmp-static.tgz"
   version "20130715"
   sha256 "16a6d4e300f45f4af094692cf8033390e4634fa4c072caf6e9c288234100ad22"
-  revision 1
 
   # The upstream binary release hard codes common locations for GMP;
   # on darwin, these include '/opt/local' (MacPorts) and '/sw' (Fink).
