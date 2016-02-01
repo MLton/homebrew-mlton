@@ -70,13 +70,15 @@ end
 
 __END__
 diff --git a/bin/mlton-script b/bin/mlton-script
-index ed4cc38..dd0cc10 100644
+index ed4cc38..3af01dd 100644
 --- a/bin/mlton-script
 +++ b/bin/mlton-script
-@@ -82,16 +82,8 @@ doit () {
+@@ -80,18 +80,8 @@ doit () {
+ # You may need to add a line with -link-opt '-L/path/to/libgmp' so
+ # that the linker can find libgmp.
  
- # The darwin linker complains (loudly) about non-existent library
- # search paths.
+-# The darwin linker complains (loudly) about non-existent library
+-# search paths.
 -darwinLinkOpts=''
 -if [ -d '/usr/local/lib' ]; then
 -        darwinLinkOpts="$darwinLinkOpts -L/usr/local/lib"
@@ -92,7 +94,7 @@ index ed4cc38..dd0cc10 100644
  
  doit "$lib" \
          -ar-script "$lib/static-library"                         \
-@@ -106,10 +98,7 @@ doit "$lib" \
+@@ -106,10 +96,7 @@ doit "$lib" \
          -target-cc-opt alpha                                     \
                  '-mieee -mbwx -mtune=ev6 -mfp-rounding-mode=d'   \
          -target-cc-opt amd64 '-m64'                              \
@@ -104,7 +106,7 @@ index ed4cc38..dd0cc10 100644
          -target-cc-opt freebsd '-I/usr/local/include'            \
          -target-cc-opt netbsd '-I/usr/pkg/include'               \
          -target-cc-opt openbsd '-I/usr/local/include'            \
-@@ -127,7 +116,7 @@ doit "$lib" \
+@@ -127,7 +114,7 @@ doit "$lib" \
          -target-link-opt amd64 '-m64'                            \
          -target-link-opt alpha                                   \
                  '-mieee -mbwx -mtune=ev6 -mfp-rounding-mode=d'   \
