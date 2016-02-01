@@ -32,10 +32,10 @@ class Mlton20130715Binary < Formula
 
   test do
     (testpath/"hello.sml").write <<-'EOS'.undent
-      val () = print "Hello, world!\n"
+      val () = print "Hello, Homebrew!\n"
     EOS
     system "#{bin}/mlton", "hello.sml"
-    system "./hello"
+    assert_equal "Hello, Homebrew!\n", `./hello`
   end
 end
 
