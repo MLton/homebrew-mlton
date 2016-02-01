@@ -1,7 +1,6 @@
-# Installs a binary build of MLton.
-# Since MLton is written in Standard ML, building from source would
-# require an existing Standard ML compiler/interpreter for
-# bootstrapping.
+
+# MLton is a self-hosting compiler for Standard ML.
+# This formula simply installs the upstream binary release.
 
 class Mlton20130715Binary < Formula
   desc "Whole-program, optimizing compiler for Standard ML"
@@ -11,18 +10,22 @@ class Mlton20130715Binary < Formula
   sha256 "16a6d4e300f45f4af094692cf8033390e4634fa4c072caf6e9c288234100ad22"
   revision 1
 
-  # We download and install the version of MLton which is statically
-  # linked to libgmp, but all generated executables will require gmp
-  # anyway, hence the dependency
+  # The upstream binary release hard codes common locations for GMP;
+  # on darwin, these include '/opt/local' (MacPorts) and '/sw' (Fink).
+  # Replace these with placeholders for the Homebrew GMP location.
   depends_on "gmp"
 
   patch :DATA
 
   def install
     cd "local" do
-      inreplace "bin/mlton", "lib='/usr/local/lib/mlton'", "lib='#{lib}/mlton'"
+      # Finish configuring binary release with Homebrew GMP location.
       inreplace "bin/mlton", "gmpHomebrewCCOpts=''", "gmpHomebrewCCOpts='-I#{Formula["gmp"].opt_prefix}/include'"
       inreplace "bin/mlton", "gmpHomebrewLinkOpts=''", "gmpHomebrewLinkOpts='-L#{Formula["gmp"].opt_prefix}/lib'"
+      # The binary release assumes that the MLton support files are in
+      # '/usr/local/lib/mlton'.  Update 'lib=...' to the install
+      # location.
+      inreplace "bin/mlton", "lib='/usr/local/lib/mlton'", "lib='#{lib}/mlton'"
       mv "man", "share"
       prefix.install Dir["*"]
     end
