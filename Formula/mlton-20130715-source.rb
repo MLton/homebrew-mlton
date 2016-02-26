@@ -17,10 +17,9 @@ class Mlton20130715Source < Formula
     sha256 "7e865cd3d1e48ade3de9b7532a31e94af050ee45f38a2bc87b7b2c45ab91e8e1"
   end
 
-  # Support configuring GMP location (https://github.com/MLton/mlton/issues/134)
-  # upstream merge commit:
+  # Configure GMP location via Makefile (https://github.com/MLton/mlton/pull/136)
   patch do
-    url "https://github.com/MatthewFluet/mlton/commit/6e79342cdcf2e15193d95fcd3a46d164b783aed4.diff"
+    url "https://github.com/MLton/mlton/commit/6e79342cdcf2e15193d95fcd3a46d164b783aed4.diff"
     sha256 "2d44891eaf3fdecd3b0f6de2bdece463c71c425100fbac2d00196ad159e5c707"
   end
 
