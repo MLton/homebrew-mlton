@@ -16,7 +16,7 @@ class Mlton20130715Binary < Formula
       PREFIX=#{prefix}
       MAN_PREFIX_EXTRA=/share
     ]
-    system "make", *args, "install"
+    system "make", *(args.clone.push "install")
   end
 
   test do

@@ -32,7 +32,7 @@ class Mlton20130715Source < Formula
         PREFIX=#{bootstrap}
         MAN_PREFIX_EXTRA=/share
       ]
-      system "make", *args, "install"
+      system "make", *(args.clone.push "install")
     end
     ENV.prepend_path "PATH", bootstrap/"bin"
 
@@ -44,8 +44,8 @@ class Mlton20130715Source < Formula
       PREFIX=#{prefix}
       MAN_PREFIX_EXTRA=/share
     ]
-    system "make", *args, "all-no-docs"
-    system "make", *args, "install-no-docs"
+    system "make", *(args.clone.push "all-no-docs")
+    system "make", *(args.clone.push "install-no-docs")
   end
 
   test do
